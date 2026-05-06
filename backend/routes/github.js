@@ -6,10 +6,7 @@ const router = express.Router();
 async function getOrFetch(username) {
   let cached = await Cache.findOne({ username, expiresAt: { $gt: new Date() } });
   if (cached) return cached.data;
-
   const headers = { Authorization: `bearer ${process.env.GITHUB_TOKEN}` };
-
-  
   const [userRes, reposRes, graphRes] = await Promise.all([
     axios.get(`https://api.github.com/users/${username}`, { headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` } }),
     axios.get(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`, { headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` } }),
