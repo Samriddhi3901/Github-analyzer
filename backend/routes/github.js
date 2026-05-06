@@ -9,6 +9,7 @@ async function getOrFetch(username) {
 
   const headers = { Authorization: `bearer ${process.env.GITHUB_TOKEN}` };
 
+  
   const [userRes, reposRes, graphRes] = await Promise.all([
     axios.get(`https://api.github.com/users/${username}`, { headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` } }),
     axios.get(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`, { headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` } }),
