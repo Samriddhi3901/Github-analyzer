@@ -43,6 +43,8 @@ async function getOrFetch(username) {
     }, { headers })
   ]);
 
+  
+
   const user = graphRes.data.data.user;
   const contributions = user.contributionsCollection.contributionCalendar.weeks
     .flatMap(w => w.contributionDays)
