@@ -8,7 +8,7 @@ export default function RepoShowcase({ repos }) {
           target="_blank"
           rel="noopener noreferrer"
           className="glass block p-6 hover:scale-105 transition-all duration-300 border border-transparent hover:border-purple-500"
-        >
+       >
         <h3 className="text-xl font-bold text-purple-300 mb-2">{repo.name}</h3>
           <p className="text-sm text-gray-300 mb-3 line-clamp-2">{repo.description}</p>
           <div className="flex flex-wrap gap-3 text-xs text-purple-200">
